@@ -12,6 +12,12 @@ const router=express.Router()
         }
     )
  })
+ router.get("/viewall",async(req,res)=>{
+    let data=await postModel.find()
+    .populate("userId","name age phoneno pin email -_id")
+    .exec()
+    res.json(data)
+ })
  module.exports=router
 
 
