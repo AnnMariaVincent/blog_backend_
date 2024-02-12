@@ -9,6 +9,10 @@ hashedpasswordgenerator=async(pass)=>{
     return bcrypt.hash(pass,salt)
 
 }
+router.get("/viewall",async(req,res)=>{
+    let data=await signupmodel.find()
+    res.json(data)
+ })
 
 router.post("/signup",async(req,res)=>{
 //let data=req.body
@@ -62,5 +66,6 @@ router.post("/signup",async(req,res)=>{
     
     
 })
+
 
 module.exports=router
